@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stagger</title>
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background-color: #000;
+            height: 100vh;
+            gap: 2rem;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <!-- We are starting here GSAP -->
+    <script>
+        // gsap.to('.box', { opacity: 0, delay: 1, stagger: 1 })
+        //in the from: center,edges, random 
+        gsap.from('.box', { opacity: 0, delay: 2, stagger: { from: 'edges', each: 0.2, repeat: 6 } })
+    </script>
+</body>
+
+</html>

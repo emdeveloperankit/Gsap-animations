@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            gap: 3rem;
+        }
+
+        .box {
+            background-color: rgba(0, 0, 255, 0.364);
+            height: 200px;
+            width: 200px;
+            border-radius: 2rem;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <div class="buttons">
+        <button class="btn">Reverse</button>
+        <button class="btn2">Resume</button>
+        <button class="btn3">Pause</button>
+    </div>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //These are toowins in GSAP
+        // gsap.to('#box2', { x: '200px', delay: 0.5, scale: 1, rotateX: '50deg', duration: 3 })
+        // gsap.from('#box1', { x: '-200px', delay: 3.5, duration: 1, scale: 1.5, rotateX: '50deg' })
+        // gsap.fromTo('#box3', { y: '200', opacity: 0 }, { y: '-300px', opacity: 1, delay: 4.5, repeat: 0 })
+
+        let t1 = gsap.timeline({ defaults: { duration: 2 }, repeat: 10 });
+        t1
+            .to('#box2', { x: '200px', scale: 1, rotateX: '50deg' })
+            // .from('#box1', { x: '-200px', duration: 5, scale: 1.5, rotateX: '50deg', ease: 'elastic' })
+            .from('#box1', { x: '-200px', scale: 1.5, rotateZ: '90deg', ease: 'elastic' })
+
+            .fromTo('#box3', { y: '200', opacity: 0 }, { y: '-300px', opacity: 1, repeat: 0 });
+        t1.seek(2)
+
+        //we are writing here javascript
+        let btn = document.querySelector('.btn');
+        let btn2 = document.querySelector('.btn2');
+        let btn3 = document.querySelector('.btn3');
+
+        btn.addEventListener('click', () => {
+            t1.reverse();
+        })
+
+        btn2.addEventListener('click', () => {
+            t1.resume();
+        })
+
+        btn3.addEventListener('click', () => {
+            t1.pause();
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Reveal</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .container,
+        .container2 {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .container {
+            background-color: rgb(134, 77, 3);
+        }
+
+        .container2 {
+            gap: 1rem;
+            background-color: #000;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .char {
+            font-size: 4rem;
+            font-display: ;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>scroll down</p>
+    </div>
+    <div class="container2">
+        <div class="word">
+            <span class="char">W</span>
+            <span class="char">E</span>
+            <span class="char">L</span>
+            <span class="char">C</span>
+            <span class="char">O</span>
+            <span class="char">M</span>
+            <span class="char">E</span>
+
+        </div>
+        <div class="word">
+            <span class="char">T</span>
+            <span class="char">O</span>
+
+
+        </div>
+        <div class="word">
+            <span class="char">O</span>
+            <span class="char">U</span>
+            <span class="char">R</span>
+        </div>
+        <div class="word">
+            <span class="char">W</span>
+            <span class="char">E</span>
+            <span class="char">B</span>
+            <span class="char">S</span>
+            <span class="char">I</span>
+            <span class="char">T</span>
+            <span class="char">E</span>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+        // gsap.to('.char', { color: 'white', delay: 2, stagger: { from: 'random', amount: 1 } })
+        gsap.to('.char', { color: 'white', stagger: { from: 'random', amount: 1 }, scrollTrigger: { trigger: '.container2', start: '-30%,center', markers: false, scrub: true, end: '+=150' } })
+    </script>
+</body>
+
+</html>
